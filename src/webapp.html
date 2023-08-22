@@ -16,7 +16,7 @@
       <div id="stats" class="container-sm">
         {{ stats }}
       </div>
-      <h1 class="display-6">&#x1F7E2 Online Employees</h1>
+      <h1 class="display-6">&#x1F7E2 Online Employees (<span id="num_of_employees_online">{{ num_of_employees_online }}</span>)</h1>
       <div id="online_employees" class="container-sm">
         {{ online_employees }}
       </div>
@@ -32,6 +32,7 @@
     function update() {
         let stats_elements = document.getElementById("stats");
         let online_employees_element = document.getElementById("online_employees");
+        let num_of_employees_online = document.getElementById("num_of_employees_online");
 
         fetch("/stats")
         .then((response) => {
@@ -49,6 +50,15 @@
         .then((data) => {
             console.log(data);
             online_employees_element.innerHTML = data["online_employees"];
+        })
+
+        fetch("/num_of_employees_online")
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            num_of_employees_online.innerHTML = data["number"];
         })
     }
 

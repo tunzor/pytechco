@@ -109,6 +109,14 @@ def stats():
     else:
         return {"stats": output}
 
+@app.route("/num_of_employees_online")
+def get_number_of_employees_online():
+    try:
+        print("Number of employees online: ", int(r.get('employees').decode()))
+        return {"number": int(r.get('employees').decode())}
+    except Exception as e:
+        return {"number": "0"}
+
 @app.route("/employees_online")
 def get_employees_online_from_db():
     output = ""
