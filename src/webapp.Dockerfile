@@ -7,4 +7,4 @@ COPY requirements-web.txt .
 
 RUN pip install --no-cache-dir -r requirements-web.txt
 
-ENTRYPOINT ["python", "./webviewer.py"]
+ENTRYPOINT ["python", "./webapp.py"]
