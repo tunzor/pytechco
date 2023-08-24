@@ -9,7 +9,7 @@ from flask import Flask, render_template
 
 redis_host = os.getenv('REDIS_HOST', default='localhost')
 redis_port = os.getenv('REDIS_PORT', default=6379)
-flask_host = os.getenv('FLASK_HOST', default='localhost')
+flask_host = os.getenv('FLASK_HOST', default='0.0.0.0')
 flask_port = os.getenv('FLASK_PORT', default=5000)
 refresh_interval = os.getenv('REFRESH_INTERVAL', default=500)
 
